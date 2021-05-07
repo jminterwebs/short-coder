@@ -8,18 +8,19 @@ import ShortCoder from './ShortCoder';
 export default function App() {
   const [data, setData] = useState({ urls: [] });
 
-  useEffect(async () => {
-    const fetchData = async () => {
-      const result = await axios('http://localhost:3000', {
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Content-Type': 'application/json',
-          mode: 'no-cors'
-        }
-      });
+  async function fetchData() {
+    const result = await axios('http://localhost:3000', {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+        mode: 'no-cors'
+      }
+    });
 
-      setData(result.data);
-    };
+    setData(result.data);
+  }
+
+  useEffect(() => {
     fetchData();
   }, []);
 
