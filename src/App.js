@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import UrlList from './UrlList';
 
-function App() {
+export default function App() {
   const [data, setData] = useState({ urls: [] });
 
   useEffect(async () => {
@@ -22,10 +23,39 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <UrlList data={data} />
-    </div>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Top 100 List</Link>
+            </li>
+            <li>
+              <Link to="/create-code">Create a Short Code</Link>
+            </li>
+          </ul>
+        </nav>
+
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/">
+            <Home data={data} />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
-export default App;
+function Home(props) {
+  const { data } = props;
+  return <UrlList data={data} />;
+}
+
+function About() {
+  return <h2>About</h2>;
+}
