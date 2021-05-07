@@ -18,6 +18,7 @@
     "fortawesome",
     "jminterwebs",
     "noopener",
-    "noreferrer"
+    "noreferrer",
+    "browserslist"
   ]
 }
