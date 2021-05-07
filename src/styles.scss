@@ -1,5 +1,10 @@
+a {
+  text-decoration: none;
+}
+
 .url-list {
   list-style: none;
+
   .url-stats {
     margin-top: 5px;
     margin-bottom: 15px;
@@ -15,4 +20,9 @@
       }
     }
   }
+}
+
+.warning-text {
+  margin-top: 15px;
+  display: block;
 }

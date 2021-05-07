@@ -39,8 +39,7 @@ export default function ShortCoder() {
       />
 
       <input type="submit" value="Submit" onClick={handleSubmit} />
-
-      {shortStatus}
+      <span className="warning-text">{shortStatus}</span>
     </div>
   );
 }
