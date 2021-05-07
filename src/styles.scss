@@ -1,0 +1,18 @@
+.url-list {
+  list-style: none;
+  .url-stats {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-flow: row;
+
+    .url-label {
+      padding: 5px;
+      flex: 1 1 0;
+
+      h2:first-child {
+        padding-right: 5px;
+      }
+    }
+  }
+}
