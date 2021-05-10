@@ -24,6 +24,10 @@ export default function App() {
     fetchData();
   }, []);
 
+  const changedState = () => {
+    fetchData();
+  };
+
   return (
     <Router>
       <div>
@@ -39,18 +43,13 @@ export default function App() {
         </nav>
         <Switch>
           <Route path="/create-code">
-            <ShortCoder />
+            <ShortCoder changedState={changedState} />
           </Route>
           <Route path="/">
-            <Home data={data} />
+            <UrlList data={data} changedState={changedState} />;
           </Route>
         </Switch>
       </div>
     </Router>
   );
-}
-
-function Home(props) {
-  const { data } = props;
-  return <UrlList data={data} />;
 }

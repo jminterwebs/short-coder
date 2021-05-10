@@ -7,9 +7,10 @@ import axios from 'axios';
 import { Label } from 'jmdesign';
 
 export default function UrlList(props) {
-  const { data } = props;
+  const { data, changedState } = props;
 
   const handleLinkClick = shortCode => {
+    changedState();
     axios.get(`http://localhost:3000/${shortCode}`);
   };
 

@@ -4,7 +4,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-export default function ShortCoder() {
+export default function ShortCoder(props) {
+  const { changedState } = props;
   const [fullUrl, setUrl] = useState('');
   const [shortStatus, setShortStatus] = useState('');
 
@@ -27,6 +28,7 @@ export default function ShortCoder() {
       .catch(err => {
         setShortStatus('Invalid Url please make sure url is valid');
       });
+    changedState();
   };
 
   return (
